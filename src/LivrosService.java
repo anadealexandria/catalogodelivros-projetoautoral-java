@@ -2,46 +2,52 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LivrosService {
-	private List<String> livros;
-	private TelaDeApresentacao telaDeApresentacao;
+	private List<Livro> livros;
 
 	public LivrosService() {
 		livros = new ArrayList<>();
-	}
 
-	public List<String> getLivros() {
-		return livros;
-	}
-
-	public void setLivros(List<String> livros) {
-		this.livros = livros;
 	}
 
 	public void cadastrarLivroParte2(String nome, String autor, String categoria) {
+		livros.add(new Livro(nome, autor, categoria));
 
-		for (String livro : livros) {
-			livros.add(nome);
-			livros.add(autor);
-			livros.add(categoria);
+	}
+
+	public void atualizarLivro(int index, String nome, String autor, String categoria) {
+		livros.get(index).setNome(nome);
+		livros.get(index).setAutor(autor);
+		livros.get(index).setCategoria(categoria);
+
+	}
+
+//	 O método listar consiste em apontar/MOSTRAR os livros e todas as informações
+//	 concernentes a eles
+	public void listarLivro() {
+		for (int i = 0; i < livros.size(); i++) {
+			System.out.println(livros.get(i));
 		}
 
 	}
 
-	public void atualizarLivro() {
+	public void realizarBuscaPorNome(String nome) {
+		List<Livro> nomes = new ArrayList<>();
+		int contador = 0;
+		for (int i = 0; i < livros.size(); i++) {
+			if (livros.get(i).getNome().equals(nome)) {
+				nomes.add(livros.get(i));
 
-	}
-	//O método listar consiste em apontar/MOSTRAR os livros e todas as informações concernentes a eles
-//	public List<String> listarLivro() {
-//		List<String> lista = new ArrayList<>();
-//		for(int i=0 ; i<livros.size(); i++) {
-//			 
-//			//lista = livros.get(i) + ", " + livros.get(i+1) + ", " + livros.get(i+2);
-//		}
-//		return
-//	}
+				contador++;
 
-	public void realizarBusca() {
-
+			}
+		}
+		if (contador > 0) {
+			for (int i = 0; i < nomes.size(); i++) {
+				System.out.println(nomes.get(i));
+			}
+		} else {
+			System.out.println("Não existe esse livro no material armazenado!");
+		}
 	}
 
 }
