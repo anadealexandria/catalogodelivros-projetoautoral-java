@@ -15,9 +15,9 @@ public class Principal {
 			tela.inicioDaAplicacao();
 			int escolha = entrada.nextInt();
 			entrada.nextLine();
-			if (escolha == 8) {
+			if (escolha == 7) {
 				System.out.println("Você deseja mesmo sair do catálogo?(S/N) ");
-				String confirmacao = entrada.next().toUpperCase();
+				String confirmacao = entrada.next().toLowerCase();
 				boolean verificacaoDeSaida = tela.sair(confirmacao);
 				if (verificacaoDeSaida) {
 					System.out.println("Até a próxima!!");
@@ -29,9 +29,9 @@ public class Principal {
 			if (escolha == 1) {
 				System.out.println("Digite um livro para cadastrá-lo (nome, autor, categoria):\n ");
 
-				String nome = entrada.nextLine();
-				String autor = entrada.nextLine();
-				String categoria = entrada.nextLine();
+				String nome = entrada.nextLine().toLowerCase();
+				String autor = entrada.nextLine().toLowerCase();
+				String categoria = entrada.nextLine().toLowerCase();
 
 				tela.escolha(escolha, nome, autor, categoria);
 			}
@@ -40,23 +40,37 @@ public class Principal {
 
 				int index = entrada.nextInt();
 				entrada.nextLine();
-				String nome = entrada.nextLine();
-				String autor = entrada.nextLine();
-				String categoria = entrada.nextLine();
+				String nome = entrada.nextLine().toLowerCase();
+				String autor = entrada.nextLine().toLowerCase();
+				String categoria = entrada.nextLine().toLowerCase();
 				tela.escolha(escolha, index, nome, autor, categoria);
 			}
 
 			if (escolha == 4) {
 				System.out.println("Digite o nome do livro que você busca:");
-				String nome = entrada.nextLine();
+				String nome = entrada.nextLine().toLowerCase();
 				tela.escolha(escolha, nome);
-			} else {
+			} 
+			
+			if (escolha == 5) {
+				System.out.println("Digite o nome do autor que busca: ");
+				String autor = entrada.nextLine().toLowerCase();
+				tela.escolha(escolha, autor);
+			}
+			
+			if (escolha == 6) {
+				System.out.println("Digite o nome da categoria: ");
+				String categoria = entrada.nextLine().toLowerCase();
+				tela.escolha(escolha, categoria);
+			}
+			
+			else {
 				tela.escolha(escolha);
 
 			}
 
-			entrada.nextLine();
-			// entrada.close();
+			System.out.print("\n");
 		}
+		entrada.close();
 	}
 }

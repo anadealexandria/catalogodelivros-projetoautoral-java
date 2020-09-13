@@ -50,4 +50,40 @@ public class LivrosService {
 		}
 	}
 
+	public void realizarBuscaPorAutor(String autor) {
+		List<Livro> autores = new ArrayList<>();
+		int contador = 0;
+		for (int i = 0; i < livros.size(); i++) {
+			if (livros.get(i).getAutor().equals(autor)) {
+				autores.add(livros.get(i));
+				contador++;
+			}
+		}
+		if (contador > 0) {
+			for (int i = 0; i < autores.size(); i++) {
+				System.out.println(autores.get(i));
+			}
+		} else {
+			System.out.println("Não existe esse autor no material armazenado!");
+		}
+	}
+
+	public void realizarBuscaPorCategoria(String categoria) {
+		List<Livro> categorias = new ArrayList<>();
+		int contador = 0;
+		
+		for ( int i = 0; i < livros.size(); i++) {
+			if (livros.get(i).getCategoria().equals(categoria)) {
+				categorias.add(livros.get(i));
+				contador++;
+			}
+		}
+		if (contador > 0) {
+			for ( int i = 0 ; i < categorias.size(); i++) {
+				System.out.println(categorias.get(i));
+			}
+		} else {
+			System.out.println("Não existe essa categoria no material armazenado!");
+		}
+	}
 }

@@ -22,7 +22,7 @@ public class TelaDeApresentacao {
 	public void inicioDaAplicacao() {
 		System.out.println("1 - Cadastrar no livro \n" + "2 - Atualizar livro \n" + "3 - Listar todos os livros \n"
 				+ "4 - Realizar busca por livro \n" + "5 - Realizar busca por autor \n"
-				+ "8 -Realizar busca por categoria \n" + "7 - Sair\nDigite abaixo uma das escolhas: ");
+				+ "6 -Realizar busca por categoria \n" + "7 - Sair\nDigite abaixo uma das escolhas: ");
 	}
 
 	public void escolha(int escolha, String nome, String autor, String categoria) {
@@ -51,10 +51,18 @@ public class TelaDeApresentacao {
 		
 		}
 	}
-	public void escolha(int escolha, String nome) {
+	public void escolha(int escolha, String valor) {
 		if (escolha == 4) {
 		
-			regrasDoCatalogo.realizarBuscaPorNome(nome);
+			regrasDoCatalogo.realizarBuscaPorNome(valor);
+		}
+	
+		if (escolha == 5) {
+			regrasDoCatalogo.realizarBuscaPorAutor(valor);
+		}
+		
+		if(escolha == 6) {
+			regrasDoCatalogo.realizarBuscaPorCategoria(valor);
 		}
 	}
 
