@@ -40,7 +40,8 @@ public class Livro {
 	
 	@Override
 	public String toString() {
-		return nome + ", " + autor + ", " + categoria ;
+		return "Título: " + nome + ", Autor: " + autor + ", Categoria: "
+	+ categoria ;
 	}
 	 
 }

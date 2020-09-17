@@ -15,7 +15,7 @@ public class Principal {
 			tela.inicioDaAplicacao();
 			int escolha = entrada.nextInt();
 			entrada.nextLine();
-			if (escolha == 7) {
+			if (escolha == 8) {
 				System.out.println("Você deseja mesmo sair do catálogo?(S/N) ");
 				String confirmacao = entrada.next().toLowerCase();
 				boolean verificacaoDeSaida = tela.sair(confirmacao);
@@ -64,6 +64,14 @@ public class Principal {
 				tela.escolha(escolha, categoria);
 			}
 			
+			if (escolha == 7) {
+				System.out.println("Digite o número correspondente ao elemento que deseja excluir: ");
+				int num = entrada.nextInt();
+				entrada.nextLine();
+				System.out.println("Você deseja mesmo remover?(S/N)");
+				String resposta = entrada.next();
+				tela.escolha(escolha, num, resposta);
+			}
 			else {
 				tela.escolha(escolha);
 

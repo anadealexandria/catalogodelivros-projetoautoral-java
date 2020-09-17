@@ -25,7 +25,7 @@ public class LivrosService {
 //	 concernentes a eles
 	public void listarLivro() {
 		for (int i = 0; i < livros.size(); i++) {
-			System.out.println(livros.get(i));
+			System.out.println( i + " - " + livros.get(i));
 		}
 
 	}
@@ -85,5 +85,19 @@ public class LivrosService {
 		} else {
 			System.out.println("Não existe essa categoria no material armazenado!");
 		}
+	}
+	
+	public void realizarRemocao(int index, String resposta) {
+		for( int i = 0 ; i < livros.size() ; i++) {
+			if(i==index) {				
+				if(resposta.equals("S")) {
+					livros.remove(livros.get(index));
+					}else {
+						break;
+					}
+				
+			}
+		}
+		
 	}
 }
