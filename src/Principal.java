@@ -65,12 +65,16 @@ public class Principal {
 			}
 			
 			if (escolha == 7) {
+				if(tela.getRegrasDoCatalogo().getLivros().isEmpty()) {
+					System.out.println("Não há livros cadastrados!");
+				}else {
 				System.out.println("Digite o número correspondente ao elemento que deseja excluir: ");
 				int num = entrada.nextInt();
 				entrada.nextLine();
 				System.out.println("Você deseja mesmo remover?(S/N)");
-				String resposta = entrada.next();
+				String resposta = entrada.next().toLowerCase();
 				tela.escolha(escolha, num, resposta);
+				}
 			}
 			else {
 				tela.escolha(escolha);

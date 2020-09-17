@@ -9,6 +9,10 @@ public class LivrosService {
 
 	}
 
+	public List<Livro> getLivros() {
+		return livros;
+	}
+
 	public void cadastrarLivroParte2(String nome, String autor, String categoria) {
 		livros.add(new Livro(nome, autor, categoria));
 
@@ -25,7 +29,7 @@ public class LivrosService {
 //	 concernentes a eles
 	public void listarLivro() {
 		for (int i = 0; i < livros.size(); i++) {
-			System.out.println( i + " - " + livros.get(i));
+			System.out.println(i + " - " + livros.get(i));
 		}
 
 	}
@@ -71,33 +75,33 @@ public class LivrosService {
 	public void realizarBuscaPorCategoria(String categoria) {
 		List<Livro> categorias = new ArrayList<>();
 		int contador = 0;
-		
-		for ( int i = 0; i < livros.size(); i++) {
+
+		for (int i = 0; i < livros.size(); i++) {
 			if (livros.get(i).getCategoria().equals(categoria)) {
 				categorias.add(livros.get(i));
 				contador++;
 			}
 		}
 		if (contador > 0) {
-			for ( int i = 0 ; i < categorias.size(); i++) {
+			for (int i = 0; i < categorias.size(); i++) {
 				System.out.println(categorias.get(i));
 			}
 		} else {
 			System.out.println("Não existe essa categoria no material armazenado!");
 		}
 	}
-	
+
 	public void realizarRemocao(int index, String resposta) {
-		for( int i = 0 ; i < livros.size() ; i++) {
-			if(i==index) {				
-				if(resposta.equals("S")) {
+		for (int i = 0; i < livros.size(); i++) {
+
+			if (i == index) {
+				if (resposta.equals("s")) {
 					livros.remove(livros.get(index));
-					}else {
-						break;
-					}
-				
+				} else {
+					break;
+				}
 			}
 		}
-		
+
 	}
 }
